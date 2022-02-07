@@ -34,7 +34,7 @@ const HomeScreen = ({navigation}) => {
         }
       />
       <Button
-        title='SliderScreen'
+        title='RGB Color picker'
         onPress={()=>{
           navigation.navigate('SliderScreen')
         }}

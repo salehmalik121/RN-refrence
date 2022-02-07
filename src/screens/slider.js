@@ -2,11 +2,11 @@ import React , {useState} from 'react';
 import Slider  from '@react-native-community/slider';   
 import { View , StyleSheet , Text } from 'react-native';
 const SliderScreen = ()=>{
-    const [redValue , setRedValue] = useState(0);
-    const [greenValue , setGreenValue] = useState(0);
-    const [blueValue , setBlueValue] = useState(0);
+    const [redValue , setRedValue] = useState(100);
+    const [greenValue , setGreenValue] = useState(100);
+    const [blueValue , setBlueValue] = useState(100);
     return (
-        <View>
+        <View style={{backgroundColor:`rgb(${redValue} , ${greenValue} , ${blueValue})` }}>
             <Text> RED </Text>
             <Slider
                 style={{width: 300, height: 40}}
@@ -36,7 +36,7 @@ const SliderScreen = ()=>{
                 onValueChange = {value => setBlueValue(Math.ceil(value))}
              
             />
-            <View style = {{height : 100 , width :100 , backgroundColor  : `rgb(${redValue} , ${greenValue} , ${blueValue})`}} />
+            <View style = {{height : 500 , width :100 , backgroundColor  : `rgb(${redValue} , ${greenValue} , ${blueValue})`}} />
         </View>
     )
 }
