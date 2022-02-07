@@ -33,6 +33,12 @@ const HomeScreen = ({navigation}) => {
           }
         }
       />
+      <Button
+        title='SliderScreen'
+        onPress={()=>{
+          navigation.navigate('SliderScreen')
+        }}
+      />
     </View>
   )
 };
