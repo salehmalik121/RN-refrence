@@ -39,6 +39,12 @@ const HomeScreen = ({navigation}) => {
           navigation.navigate('SliderScreen')
         }}
       />
+      <Button
+        title='Color Counter'
+        onPress={()=>{
+          navigation.navigate('ColorCounterScreen')
+        }}
+      />
     </View>
   )
 };
