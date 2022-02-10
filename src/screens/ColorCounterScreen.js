@@ -10,13 +10,13 @@ const ColorCounterScreen = ()=>{
     const rgbCheck = (color , change)=>{
         switch (color){
             case 'Red':
-                Red + change > 255 || Red - change < 0 ? null : setRed(Red + change);
+                Red + change > 255 || Red + change < 0 ? null : setRed(Red + change);
                 return;
             case 'Green':
-                Green + change > 255 || Green - change < 0 ? null : setRed(Green + change);
+                Green + change > 255 || Green + change < 0 ? null : setRed(Green + change);
                 return;
             case 'Blue':
-                Blue + change > 255 || Blue - change < 0 ? null : setRed(Blue + change);
+                Blue + change > 255 || Blue + change < 0 ? null : setRed(Blue + change);
                 return;
 
         }
@@ -28,12 +28,12 @@ const ColorCounterScreen = ()=>{
             onDecrease = {()=>rgbCheck('Red' , -1*colorIncriment)}
             title = "Red"/>
             <ColorCounter 
-            onIncrease = {()=>setGreen(Green+colorIncriment)}
-            onDecrease = {()=>setGreen(Green-colorIncriment)}
+            onIncrease = {()=>rgbCheck("Green" , colorIncriment)}
+            onDecrease = {()=>rgbCheck("Green" , -1*colorIncriment)}
             title = "Green"/>
             <ColorCounter
-            onIncrease = {()=>setBlue(Blue+colorIncriment)}
-            onDecrease = {()=>setBlue(Blue-colorIncriment)}
+            onIncrease = {()=>rgbCheck("Blue" , colorIncriment)}
+            onDecrease = {()=>rgbCheck("Green" , 1*colorIncriment)}
             title = "blue" />
             <View  style={{width:100 , height:100 , backgroundColor : `rgb(${Red},${Green},${Blue})` }} />
         </View> 

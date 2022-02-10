@@ -44,7 +44,13 @@ const HomeScreen = ({navigation}) => {
         onPress={()=>{
           navigation.navigate('ColorCounterScreen')
         }}
+        
       />
+      <Button
+        title='ThemeChanger'
+        onPress={()=>{
+          navigation.navigate('ThemeChanger')
+        }}/>
     </View>
   )
 };
