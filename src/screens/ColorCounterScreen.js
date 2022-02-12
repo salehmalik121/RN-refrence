@@ -1,41 +1,41 @@
-import React , {useState} from 'react';
+import React , {useReducer} from 'react';
 import {View , StyleSheet} from 'react-native';
 import ColorCounter from '../components/ColorCounter';
 
-const ColorCounterScreen = ()=>{
-    const [Red , setRed] = useState(100);
-    const [Green , setGreen] = useState(100);
-    const [Blue , setBlue] = useState(100);
-    const colorIncriment = 20;
-    const rgbCheck = (color , change)=>{
-        switch (color){
-            case 'Red':
-                Red + change > 255 || Red + change < 0 ? null : setRed(Red + change);
-                return;
-            case 'Green':
-                Green + change > 255 || Green + change < 0 ? null : setRed(Green + change);
-                return;
-            case 'Blue':
-                Blue + change > 255 || Blue + change < 0 ? null : setRed(Blue + change);
-                return;
-
-        }
+const reducer = (state , action)=>{
+    switch (action.valueTobeChanged) {
+        case 'Red':
+            return   state.Red + action.amountTobeChnaged > 255 || state.Red + action.amountTobeChnaged < 0 ?
+            state : {...state , Red : state.Red + action.amountTobeChnaged};
+        case 'Green':
+            return   state.Green + action.amountTobeChnaged > 255 || state.Green + action.amountTobeChnaged < 0 ?
+            state : {...state , Green : state.Green + action.amountTobeChnaged};
+        case 'Blue':
+        return   state.Blue + action.amountTobeChnaged > 255 || state.Blue + action.amountTobeChnaged < 0 ?
+            state : {...state , Blue : state.Blue + action.amountTobeChnaged};
     }
+}
+const ColorCounterScreen = ()=>{
+   const [state , Dispatch] = useReducer(reducer , {Red:0 , Green : 0 , Blue : 0})
+   const {Red , Green , Blue} = state;
+   const rgb = `rgb(${Red} , ${Green} , ${Blue})`;
+   console.log({rgb});
+   const change = 15;
     return (
         <View>
             <ColorCounter 
-            onIncrease = {()=>rgbCheck('Red' , colorIncriment)}
-            onDecrease = {()=>rgbCheck('Red' , -1*colorIncriment)}
+            onIncrease = {()=> Dispatch({valueTobeChanged: "Red" , amountTobeChnaged : change})}
+            onDecrease = {()=> Dispatch({valueTobeChanged: "Red" , amountTobeChnaged : -1*change})}
             title = "Red"/>
             <ColorCounter 
-            onIncrease = {()=>rgbCheck("Green" , colorIncriment)}
-            onDecrease = {()=>rgbCheck("Green" , -1*colorIncriment)}
+            onIncrease = {()=>Dispatch({valueTobeChanged: "Green" , amountTobeChnaged : change})}
+            onDecrease = {()=>{Dispatch({valueTobeChanged: "Green" , amountTobeChnaged : -1* change})}}
             title = "Green"/>
             <ColorCounter
-            onIncrease = {()=>rgbCheck("Blue" , colorIncriment)}
-            onDecrease = {()=>rgbCheck("Green" , 1*colorIncriment)}
+            onIncrease = {()=>Dispatch({valueTobeChanged: "Blue" , amountTobeChnaged : change})}
+            onDecrease = {()=>Dispatch({valueTobeChanged: "Blue" , amountTobeChnaged : -1 *change})}
             title = "blue" />
-            <View  style={{width:100 , height:100 , backgroundColor : `rgb(${Red},${Green},${Blue})` }} />
+            <View  style={{width:100 , height:100 , backgroundColor : rgb }} />
         </View> 
     )
 }
