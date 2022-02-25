@@ -9,6 +9,10 @@ import ColorsScreen from "./src/screens/Colors";
 import SliderScreen from "./src/screens/slider";
 import ColorCounterScreen from "./src/screens/ColorCounterScreen";
 import ThemeChanger from "./src/screens/ThemeChanger";
+import TextScreen from "./src/screens/TextScreen";
+import PasswordValid from "./src/screens/passwordValid";
+import ValidScreen from "./src/screens/useReducer";
+import boxObjectModel from "./src/screens/boxObjectModel";
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
@@ -19,7 +23,11 @@ const navigator = createStackNavigator(
     ColorsScreen:ColorsScreen,
     SliderScreen : SliderScreen,
     ColorCounterScreen : ColorCounterScreen,
-    ThemeChanger:ThemeChanger
+    ThemeChanger:ThemeChanger,
+    TextScreen : TextScreen,
+    PasswordValid : PasswordValid,
+    ValidScreen : ValidScreen,
+    boxObjectModel: boxObjectModel,
   },
   {
     initialRouteName: "Home",

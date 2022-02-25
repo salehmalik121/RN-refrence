@@ -51,6 +51,30 @@ const HomeScreen = ({navigation}) => {
         onPress={()=>{
           navigation.navigate('ThemeChanger')
         }}/>
+        <Button 
+          title='TextScreen'
+          onPress={()=>{
+            navigation.navigate('TextScreen')
+          }}
+        />
+        <Button 
+          title='Password Valid'
+          onPress={()=>{
+            navigation.navigate('PasswordValid')
+          }}
+        />
+        <Button 
+          title='Valid with reducers'
+          onPress={()=>{
+            navigation.navigate('ValidScreen')
+          }}
+        />
+        <Button 
+          title='Box Object Model'
+          onPress={()=>{
+            navigation.navigate('boxObjectModel')
+          }}
+        />
     </View>
   )
 };
@@ -63,7 +87,6 @@ const styles = StyleSheet.create({
   },
   button:{
     backgroundColor:'green'
-    
   }
 });
 
